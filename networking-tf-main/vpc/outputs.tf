@@ -1,0 +1,94 @@
+#######
+# VPC #
+#######
+
+output "vpc_id" {
+  description = "The ID of the VPC"
+  value       = module.vpc.vpc_id
+}
+###############
+# CIDR blocks #
+###############
+
+output "vpc_cidr_block" {
+  description = "The CIDR block of the VPC"
+  value       = module.vpc.vpc_cidr_block
+}
+
+//output "vpc_ipv6_cidr_block" {
+//  description = "The IPv6 CIDR block"
+//  value       = module.vpc.vpc_ipv6_cidr_block
+//}
+
+###########
+# Subnets #
+###########
+
+output "private_subnets" {
+  description = "List of IDs of private subnets"
+  value       = module.vpc.private_subnets
+}
+
+output "public_subnets" {
+  description = "List of IDs of public subnets"
+  value       = module.vpc.public_subnets
+}
+
+####################
+# Private Subnet A #
+####################
+
+output "private_subnet_a" {
+  description = "Private Subnet from AZ A"
+  value       = module.vpc.private_subnets[0]
+}
+
+####################
+# Private Subnet C #
+####################
+
+output "private_subnet_c" {
+  description = "Private Subnet from AZ C"
+  value       = module.vpc.private_subnets[1]
+}
+
+###################
+# Public Subnet A #
+###################
+
+output "public_subnet_a" {
+  description = "Public Subnet from AZ A"
+  value       = module.vpc.public_subnets[0]
+}
+
+###################
+# Public Subnet C #
+###################
+
+output "public_subnet_c" {
+  description = "Public Subnet from AZ C"
+  value       = module.vpc.public_subnets[1]
+}
+
+################
+# NAT gateways #
+################
+
+output "nat_public_ips" {
+  description = "List of public Elastic IPs created for AWS NAT Gateway"
+  value       = module.vpc.nat_public_ips
+}
+
+#######
+# AZs #
+#######
+
+output "azs" {
+  description = "A list of availability zones spefified as argument to this module"
+  value       = module.vpc.azs
+}
+
+output "route_table_id" {
+  description = "Route Table ID"
+  value       = module.vpc.private_route_table_ids
+}
